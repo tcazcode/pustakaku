@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg-page: #F7F6F2;
+    --bg-surface: #FFFFFF;
+    --bg-surface-subtle: #F2F0EA;
+    --text-primary: #252923;
+    --text-secondary: #777970;
+    --text-tertiary: #A1A399;
+    --border-color: #E5E3DC;
+    --border-strong: #D1CEBF;
+    --accent-forest: #345444;
+    --accent-forest-hover: #294336;
+    --accent-forest-light: #EDF3EF;
+    --accent-forest-subtle: #E2ECE5;
+  }
+
+  .dark {
+    --bg-page: #151614;
+    --bg-surface: #1E201D;
+    --bg-surface-subtle: #252824;
+    --text-primary: #EDECE8;
+    --text-secondary: #9B9D93;
+    --text-tertiary: #6E7067;
+    --border-color: #2D302A;
+    --border-strong: #3D4039;
+    --accent-forest: #54826B;
+    --accent-forest-hover: #63987E;
+    --accent-forest-light: #202D26;
+    --accent-forest-subtle: #293B32;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  h1, h2, h3, h4, .font-serif, .font-editorial {
+    font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+  }
+}
+
+/* Custom editorial typography utilities */
+.font-serif {
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+}
+
+.font-sans {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Minimalist editorial scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8D6CD;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #363932;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #BCB9AE;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #474B42;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Book Cover Elevation & Aspect Ratio */
+.book-cover-shadow {
+  box-shadow: 0 4px 12px -2px rgba(37, 41, 35, 0.08), 0 1px 3px 0 rgba(37, 41, 35, 0.04);
+}
+
+.book-cover-shadow-lg {
+  box-shadow: 0 10px 25px -4px rgba(37, 41, 35, 0.12), 0 2px 6px 0 rgba(37, 41, 35, 0.06);
+}
+
+.dark .book-cover-shadow {
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.35);
+}
+
+.dark .book-cover-shadow-lg {
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.5);
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-toast {
+  animation: toastSlide 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
